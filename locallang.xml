@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for extension 'ttnews_addedfields'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="de" type="array">
+			<label index="pi1_title">Zusätzliche Funktionen für Typo3 (t3pimper)</label>
+			<label index="pi1_t3pimper_wiz_description">Fügt ein PlugIn ein.</label>
+			<label index="tt_content.list_type_pi1">t3pimper</label>
+		</languageKey>
+	</data>
+</T3locallang>

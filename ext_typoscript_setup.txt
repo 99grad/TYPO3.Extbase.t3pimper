@@ -1,0 +1,703 @@
+
+
+
+page.includeCSS {
+	t3pimper_frontend = EXT:t3pimper/res/frontend.css
+}
+
+
+
+
+############################################################################################
+
+config.tx_extbase{
+	persistence{
+		classes{
+
+			TYPO3\CMS\Extbase\Domain\Model\FileReference {
+				subclasses {
+				   Tx_T3pimper_FileReference = NNGrad\T3pimper\Domain\Model\FileReference
+		  		}
+			}
+			
+			NNGrad\T3pimper\Domain\Model\FileReference {
+				mapping {
+					tableName = sys_file_reference
+				}
+			}
+			
+		}
+	}
+}
+
+##########################################################
+# FAL Bildausschnitte
+
+config.t3pimper.imgvariants {
+	
+	presets {
+		crop {
+			default {
+				label = Allg. Anschnitt	
+			}
+			
+			square {
+				label = Quadrat
+				aspectratio = 1:1
+			}
+			
+			landscape {
+				label = Querformat
+				aspectratio = 2:1
+			}
+		
+			portrait {
+				label = Hochformat
+				aspectratio = 1:2
+			}
+		}
+		
+		focalpoint {
+			default {
+				label = Focal Point
+			}
+		}
+		
+	}
+	
+	fal_preview {
+		maxWidth = 200
+		maxHeight = 200
+	}
+}
+
+	
+[userFunc = user_t3pimper_config(falCropping)]
+	#config.t3pimper.imgvariants.enabled = 0
+[global]
+
+
+############################################################################################
+
+
+
+plugin.tx_t3pimper_pi1 {
+	
+	parent_hmenu = COA
+	parent_hmenu {
+		
+		
+		10 = HMENU
+		10 {
+	
+			entryLevel = 1
+			special = directory
+			special.value.data = register:parent_pid
+			
+			1 = TMENU
+			1.noBlur = 1
+			1.expAll = 1
+			1.wrap = <ul class="nav_sub lv-1">|</ul>
+			1.NO = 1
+			1.NO {
+			
+				before.cObject < lib.tv_page_settings
+				
+				stdWrap.noTrimWrap = |{ | }|
+				wrapItemAndSub = <li data-pid="{field:uid}" class="lv-1 pid_{field:uid} {register:navi_icon} {register:display_opt} first">{register:navi_icon_span}|</li>|*|<li data-pid="{field:uid}" class="lv-1 pid_{field:uid} {register:navi_icon} {register:display_opt}">{register:navi_icon_span}|</li>|*|<li data-pid="{field:uid}" class="lv-1 last pid_{field:uid} {register:navi_icon} {register:display_opt}">{register:navi_icon_span}|</li>
+				wrapItemAndSub.insertData = 1
+				ATagParams.dataWrap = class="lv-1 pid_{field:uid}" data-pid="{field:uid}"
+			}
+		
+			1.ACT < .1.NO
+			1.ACT {
+				wrapItemAndSub = <li data-pid="{field:uid}" class="lv-1 aktiv first pid_{field:uid} {register:navi_icon} {register:display_opt}">{register:navi_icon_span}|</li>|*|<li data-pid="{field:uid}" class="lv-1 aktiv pid_{field:uid} {register:navi_icon} {register:display_opt}">|{register:navi_icon_span}|</li>|*|<li data-pid="{field:uid}" class="lv-1 aktiv last pid_{field:uid} {register:navi_icon} {register:display_opt}">{register:navi_icon_span}|</li>
+				ATagParams.dataWrap = class="lv-1 aktiv pid_{field:uid}" data-pid="{field:uid}"
+			}
+			
+			1.CUR < .1.ACT
+			1.CUR {
+				wrapItemAndSub = <li data-pid="{field:uid}" class="lv-1 selected first pid_{field:uid} {register:navi_icon} {register:display_opt}">{register:navi_icon_span}|</li>|*|<li data-pid="{field:uid}" class="lv-1 selected pid_{field:uid} {register:navi_icon} {register:display_opt}">{register:navi_icon_span}|</li>|*|<li data-pid="{field:uid}" class="lv-1 selected last pid_{field:uid} {register:navi_icon} {register:display_opt}">{register:navi_icon_span}|</li>
+				ATagParams.dataWrap = class="lv-1 selected pid_{field:uid}" data-pid="{field:uid}"
+			}
+			
+			2 < .1
+			2.wrap = <ul class="nav_sub lv-2">|</ul>
+			2.NO {
+				stdWrap.noTrimWrap = |||
+				wrap = <ul class="nav_sub lv-2">|</ul>
+				wrapItemAndSub = <li data-pid="{field:uid}" class="lv-2 pid_{field:uid} {register:navi_icon} {register:display_opt} first">{register:navi_icon_span}|</li>|*|<li data-pid="{field:uid}" class="lv-2 pid_{field:uid} {register:navi_icon} {register:display_opt}">{register:navi_icon_span}|</li>|*|<li data-pid="{field:uid}" class="lv-2 last pid_{field:uid} {register:navi_icon} {register:display_opt}">{register:navi_icon_span}|</li>
+				ATagParams.dataWrap = class="lv-2 pid_{field:uid}" data-pid="{field:uid}"				
+			}
+		}
+
+		10.stdWrap.wrap = <div class="nav_sub_wrapper"><div class="nav_sub_inner">|</div></div>
+
+	}
+	
+}
+
+
+[compatVersion = 4.5]
+
+# Standard h1/h2 etc. entfernen
+lib.stdheader.10.1.stdWrap.dataWrap >
+lib.stdheader.10.2.stdWrap.dataWrap >
+lib.stdheader.10.3.stdWrap.dataWrap >
+lib.stdheader.10.4.stdWrap.dataWrap >
+lib.stdheader.10.5.stdWrap.dataWrap >
+
+# Standard subheader entfernen
+lib.stdheader.10.20 >
+lib.stdheader.20.20 >
+lib.stdheader.30.20 >
+lib.stdheader.40.20 >
+lib.stdheader.50.20 >
+lib.stdheader.20 >
+tt_content.header.20 >
+
+[global]
+
+
+############################################################################################
+# Klassen für Formatierung der Headlines als LOAD_REGISTER bereitstellen
+#
+# t3pimper_headerClasses 	=> 	Farbe und Position ("col-1 center deco-1")
+# t3pimper_headerSize		=> 	Erste Ziffer, die in TCEFORM.tt_content.header_layout.addItems 
+#								definiert wurde, z.B. bei "22" => "2"
+# t3pimper_classAttr		=>	Alle Klassen, gewrapped mit class="...", falls Klassen vorhanden
+#
+# Beispiele im page_setup.ts:
+# lib.stdheader.10.10.dataWrap = <h{register:t3pimper_headerSize} class="gross-1 {register:t3pimper_headerClasses}">|</h{register:t3pimper_headerSize}>
+# lib.stdheader.10.10.dataWrap = <h{register:t3pimper_headerSize}{register:t3pimper_classAttr}>|</h{register:t3pimper_headerSize}>
+
+
+
+lib.stdheader.1 = LOAD_REGISTER
+lib.stdheader.1 {
+
+	t3pimper_headerClasses.cObject = COA
+	t3pimper_headerClasses.cObject {
+		10 = TEXT
+		10.field = tx_t3pimper_headercolor
+		10.noTrimWrap = |col-| |
+		10.required = 1
+		10.if.isTrue.field = tx_t3pimper_headercolor
+		
+		20 < .10
+		20.field = header_position
+		20.noTrimWrap = || |
+		20.if >
+		
+		30 < .10
+		30.field = header_layout
+		30.noTrimWrap = |h-| |
+		30.if.isTrue.field = header_layout
+		
+		40 < .10
+		40.field = tx_t3pimper_headerdeco
+		40.noTrimWrap = |deco-| |
+		40.if.isTrue.field = tx_t3pimper_headerdeco
+		
+		50 = TEXT
+		50.value = no-subheader
+		50.override = w-subheader
+		50.override.if.isTrue.field = subheader
+		50.noTrimWrap = || |
+	}
+	
+	t3pimper_headerSize.cObject = TEXT
+	t3pimper_headerSize.cObject {
+		field = header_layout
+		substring = 0,1
+		override = 1
+		override.if.isFalse.field = header_layout
+	}
+	
+	t3pimper_classAttr.cObject = COA
+	t3pimper_classAttr.cObject {
+		10 = TEXT
+		10.data = register:t3pimper_headerClasses
+		10.trim = 1
+		stdWrap.noTrimWrap = | class="|"|
+		stdWrap.required = 1
+	}
+	
+	
+	
+	t3pimper_groupHeaderClasses < .t3pimper_headerClasses
+	t3pimper_groupHeaderClasses.cObject {
+		10.noTrimWrap = |grcol-| |
+		20.noTrimWrap = |gr| |
+		30.noTrimWrap = |grh-| |
+		40.noTrimWrap = |grdeco-| |
+	}
+	
+	t3pimper_groupClassAttr < .t3pimper_classAttr
+	t3pimper_groupClassAttr.cObject.10.data = register:t3pimper_groupHeaderClasses
+}
+
+
+## <hgroup> mit Klassen bestücken
+
+lib.stdheader.7 = TEXT
+lib.stdheader.7 {
+	value = <hgroup{register:t3pimper_groupClassAttr}>
+	insertData = 1
+}
+
+
+lib.stdheader.29 = TEXT
+lib.stdheader.29 {
+	field = subheader
+	wrap = <h2 class="subheader">|</h2>
+	stdWrap.br = 1
+	required = 1
+}
+
+lib.stdheader.90 = TEXT
+lib.stdheader.90.value = </hgroup>
+
+
+######################################################################################################
+# Mehrzeilige Headlines: Umbruch!
+
+lib.stdheader {
+	10 {
+		1 = COA
+		1.stdWrap.dataWrap = <h{register:t3pimper_headerSize}{register:t3pimper_classAttr}>|</h{register:t3pimper_headerSize}>
+		1.dataWrap = <h{register:t3pimper_headerSize}{register:t3pimper_classAttr}>|</h{register:t3pimper_headerSize}>
+		
+		1.10 = COA
+		1.10 {
+			10 = TEXT
+			10 {
+				field = header
+				listNum = 0
+				listNum.splitChar = 13
+				wrap = |
+				required = 1
+			}
+		
+			20 < .10
+			20.listNum = 1
+				
+			30 < .10
+			30.listNum = 2
+			
+			40 < .10
+			40.listNum = 3
+			
+			stdWrap.brTag = <br />
+			stdWrap.typolink.parameter.field = header_link
+		}
+	
+		stdWrap.brTag = <br />
+		#stdWrap.typolink.parameter.field = header_link
+	}
+	
+
+	10.99 = COA
+	10.99 {
+		10 = TEXT
+		10.field = header
+		10.stdWrap.typolink.parameter.field = header_link
+	}
+	10.99.stdWrap.dataWrap = <h{register:t3pimper_headerSize} class="{register:t3pimper_headerClasses}">|</h{register:t3pimper_headerSize}>
+
+	10.10 < .10.99
+	10.11 < .10.99
+	10.12 < .10.99
+	10.13 < .10.99
+	10.14 < .10.99
+	10.15 < .10.99
+	10.16 < .10.99
+	10.17 < .10.99
+	10.18 < .10.99
+	10.19 < .10.99	
+	10.20 < .10.99
+	10.21 < .10.99
+	10.22 < .10.99
+	10.23 < .10.99
+	10.24 < .10.99
+	10.25 < .10.99
+	10.26 < .10.99
+	10.27 < .10.99
+	10.28 < .10.99
+	10.29 < .10.99
+	10.30 < .10.99
+	10.31 < .10.99
+	10.32 < .10.99
+	10.33 < .10.99
+	10.34 < .10.99
+	10.35 < .10.99
+	10.36 < .10.99
+	10.37 < .10.99
+	10.38 < .10.99
+	10.39 < .10.99
+	
+	// usw...
+}
+	
+
+### csc-firstHeader entfernen
+
+lib.stdheader.3.headerClass >
+
+lib.stdheader.10 {
+	2.dataWrap < .1.dataWrap
+	3.dataWrap < .1.dataWrap
+	4.dataWrap < .1.dataWrap
+	5.dataWrap < .1.dataWrap
+	6.dataWrap < .1.dataWrap
+}
+
+### csc-header entfernen
+lib.stdheader.stdWrap.dataWrap.override = <header>|</header>
+
+
+### HTML-Tags in Header erlauben ###
+lib.stdheader.10.setCurrent.htmlSpecialChars = 0
+
+############################################################################################
+
+tt_content.stdWrap.innerWrap.cObject = CASE
+tt_content.stdWrap.innerWrap.cObject {
+	key.field = section_frame
+
+	#0 = TEXT
+	#0.value = <div class="clear_div"></div><div class="section_frame_default_wrap">|</div>
+	#0.spaceBefore.field = spaceBefore
+	#0.spaceAfter.field = spaceAfter
+}
+
+############################################################################################
+# Klassen für Formatierung von "Rahmen" bereitstellen
+
+tt_content.stdWrap.innerWrap.cObject.default.1 = LOAD_REGISTER
+tt_content.stdWrap.innerWrap.cObject.default.1 {
+	t3pimper_sectionClasses.cObject = COA
+	t3pimper_sectionClasses.cObject {
+		
+		5 = TEXT
+		5.value = def-wrap
+		5.noTrimWrap = || clearfix |
+		
+		10 = TEXT
+		10.field = tx_t3pimper_margin
+		10.noTrimWrap = |marg-| |
+		10.required = 1
+		10.if.isTrue.field = tx_t3pimper_margin
+		
+		20 < .10
+		20.if >
+		20.field = section_frame
+		20.noTrimWrap = |rahmen rahmen-| |
+		20.if {
+			value = 66,0
+			isInList.field = section_frame
+			negate = 1
+		}
+		
+		30 < .10
+		30.field = layout
+		30.noTrimWrap = |layout-| |
+		30.if.isTrue.field = layout
+		
+		40 = TEXT
+		40.postUserFunc = tx_t3pimper_pi1->getElementCountClasses
+		40.postUserFunc {
+			prefix = el-
+			first = first
+			last = last
+		}
+		40.noTrimWrap = || |
+
+	}
+	
+	t3pimper_sectionClassAttr.cObject = COA
+	t3pimper_sectionClassAttr.cObject {
+		10 = TEXT
+		10.data = register:t3pimper_sectionClasses
+		10.trim = 1
+		stdWrap.noTrimWrap = | class="|"|
+		stdWrap.required = 1
+	}
+	
+	t3pimper_sectionStyle.cObject = COA
+	t3pimper_sectionStyle.cObject {
+				
+		10 = TEXT
+		10.postUserFunc = tx_t3pimper_pi1->getMarginForStyleAttr
+		10.postUserFunc {
+			fields = tx_t3pimper_margintop,tx_t3pimper_marginright,tx_t3pimper_marginbottom,tx_t3pimper_marginleft
+			units = px
+			stdWrap.wrap = margin:|;
+		}
+		
+		15 = TEXT
+		15.postUserFunc = tx_t3pimper_pi1->getCSS3ForStyleAttr
+		15.postUserFunc {
+			vendor_prefixes = -webkit,-moz,-ms
+			field_rotate = tx_t3pimper_rotate
+		}
+		
+	}
+		
+}
+
+
+
+
+### .default.15 enthält die Werte für den "class"-Tag eines DIVs, z.B. csc-default
+
+tt_content.stdWrap.innerWrap.cObject.default.15 = TEXT
+tt_content.stdWrap.innerWrap.cObject.default.15 {
+	value = {register:t3pimper_sectionClassAttr}
+	insertData = 1
+	noTrimWrap >
+}
+
+
+### .default.20 enthält die Werte für den "style"-Tag eines DIVs, z.B. margin-top
+
+tt_content.stdWrap.innerWrap.cObject.default.20 {
+	
+	# spaceBefore / spaceAfter ignorieren
+	10 >
+	20 >
+	10 = TEXT
+	10 {
+		value = {register:t3pimper_sectionStyle}
+		insertData = 1
+	}
+	noTrimWrap >
+}
+
+tt_content.stdWrap.innerWrap.cObject.default {	
+	25 = TEXT
+	25 {
+		value = {register:t3pimper_sectionStyle}
+		insertData = 1
+		noTrimWrap = | style="|"|
+	}
+}
+
+
+tt_content.stdWrap.innerWrap.cObject.default {
+	#99 = TEXT
+	#99.value = <div class="clear_div"></div>
+}
+
+
+## .66 ist die Option "kein Rahmen". Hier möchten wir aber den Abstand und Position übernehmen
+
+tt_content.stdWrap.innerWrap.cObject.66.stdWrap.wrap {
+	cObject = COA
+	cObject {
+		10 < tt_content.stdWrap.innerWrap.cObject.default.1
+		10 {
+			t3pimper_sectionClasses.cObject.5 >
+			t3pimper_sectionStyle.cObject {
+				stdWrap.noTrimWrap = | style="|"|
+				stdWrap.required = 1
+			}
+		}
+		20 = TEXT
+		20.value = <div{register:t3pimper_sectionStyle}{register:t3pimper_sectionClassAttr}>|</div> 
+		20.insertData = 1
+	}
+}
+
+
+# Typo3 6.2
+#tt_content.stdWrap.wrap < tt_content.stdWrap.innerWrap
+
+
+tt_content.textpic.20.text.wrap {
+	override = |
+	override.if.isFalse.cObject = COA
+	override.if.isFalse.cObject {
+		10 = COA
+		10.10 < lib.stdheader
+		10.if.value = 24
+		10.if.isGreaterThan.field = imageorient
+		if.value = 24
+		20 < tt_content.text.20
+	}
+}
+
+############################################################################################
+## Bild-Breite (Responsive)
+## und: horizontaler / vertikaler Versatz eines Bildes
+
+lib.tx_t3pimper_lr = LOAD_REGISTER
+lib.tx_t3pimper_lr {
+		
+	tx_t3pimper_imgStyleAttr.cObject = COA
+	tx_t3pimper_imgStyleAttr.cObject {
+		
+		10 = TEXT
+		10.postUserFunc = tx_t3pimper_pi1->getMarginForStyleAttr
+		10.postUserFunc {
+			fields = tx_t3pimper_imgmargintop,tx_t3pimper_imgmarginright,tx_t3pimper_imgmarginbottom,tx_t3pimper_imgmarginleft
+			units = px
+			stdWrap.wrap = margin:|;
+		}
+		15 = TEXT
+		15.postUserFunc = tx_t3pimper_pi1->getCSS3ForStyleAttr
+		15.postUserFunc {
+			vendor_prefixes = -webkit,-moz,-ms
+			field_rotate = tx_t3pimper_imgrotate
+		}
+		
+		stdWrap.noTrimWrap = | style="|"|
+		stdWrap.required = 1
+	}
+}
+
+
+tt_content.image.20 {
+
+	/*
+	renderMethod = singleNoCaption
+	
+	imageStdWrap {		
+		#dataWrap = <div class="csc-textpic-imagewrap xxxy" style="width:{register:totalwidth}px;"> | </div>
+	}
+	
+	imageStdWrapNoWidth >
+	imageStdWrapNoWidth {
+		dataWrap.cObject = COA
+		dataWrap.cObject {
+			10 < lib.tx_t3pimper_lr
+			20 = TEXT
+			20.value = <div class="csc-textpic-imagewrap"{register:tx_t3pimper_imgStyleAttr}> | </div>
+		}
+	}
+	
+	rendering {
+	
+		singleNoCaption {
+			#allStdWrap.dataWrap = <div class="csc-textpic-imagewrap xxxa"> | </div>
+			#singleStdWrap.wrap = <div class="csc-textpic-image xxx ###CLASSES###"> | </div>	
+		}
+		noCaption {
+			#allStdWrap.dataWrap = <div class="csc-textpic-imagewrap xxxv"> | </div>
+			#singleStdWrap.wrap = <div class="csc-textpic-image xxx ###CLASSES###"> | </div>
+		}
+		singleCaption {
+			#singleStdWrap.wrap = <div class="csc-textpic-image xxx ###CLASSES###"> | </div>	
+		}
+		splitCaption {
+			#singleStdWrap.wrap = <div class="csc-textpic-image xxx ###CLASSES###"> | </div>		
+		}
+	}
+	*/
+	
+}
+
+
+
+
+############################################################################################
+
+
+
+tt_content.bullets.20.dataWrap = <ul class="csc-bulletlist csc-bulletlist-{field:layout} des-{field:tx_t3pimper_bulletstyle}">|</ul>
+
+lib.fce_headline = COA
+lib.fce_headline {
+	10 = TEXT
+	10.postUserFunc = tx_t3pimper_pi1->getHeadlineForTV
+}
+
+lib.fce_headline_w_tag = COA
+lib.fce_headline_w_tag {
+
+	10 = TEXT
+	10.postUserFunc = tx_t3pimper_pi1->getHeadlineForTV
+	10.postUserFunc {
+		stdWrap < lib.stdheader
+	}
+
+}
+
+
+######################################################################################################
+## Lightbox per jQuery
+
+tmp.imageLinkWrap = 1
+tmp.imageLinkWrap {
+	enable.field = image_zoom
+	enable.ifEmpty.typolink.parameter.data = file:current:link
+	enable.ifEmpty.typolink.parameter.listNum.stdWrap.data = register : IMAGE_NUM_CURRENT
+	enable.ifEmpty.typolink.returnLast = url
+
+	typolink {
+			target = {$styles.content.links.target}
+			extTarget = {$styles.content.links.extTarget}
+			# Link zum Bild
+			parameter.cObject = IMG_RESOURCE
+			parameter.cObject.file.import.data = TSFE:lastImageInfo|origFile
+			parameter.cObject.file.maxW = {$styles.content.imgtext.linkWrap.width}
+			# wenn image_link nicht leer parameter ueberschreiben
+			parameter.override.data = file:current:link
+			parameter.override.listNum.stdWrap.data = register : IMAGE_NUM_CURRENT
+			parameter.override.if.isTrue.data = file:current:link
+			ATagParams = title="{file:current:title}" class="link"
+			ATagParams.override.cObject = COA
+			ATagParams.override.cObject {
+				10 = TEXT
+				10.value = shaded lightbox fancybox
+				10.stdWrap.noTrimWrap = || |
+				stdWrap.dataWrap = title="{file:current:title}" class="|"
+			}
+			ATagParams.insertData = 1
+			ATagParams.override.if.isTrue.field = image_zoom
+	}
+}
+
+tt_content.image.20.1.imageLinkWrap >
+tt_content.image.20.1.imageLinkWrap < tmp.imageLinkWrap 
+
+
+######################################################################################################
+## PID aller übergeordneten Seiten als class an body hängen!
+
+temp.body = COA
+temp.body {
+	10 = HMENU
+	10 {
+		special = rootline
+		special.range = 0 | 2
+		1 = TMENU
+		1 {
+			NO {
+				doNotLinkIt = 1
+				doNotShowLink = 1
+				allStdWrap.cObject = COA
+				allStdWrap.cObject {
+					10 = TEXT
+					10 {
+						field = pid
+					}
+					10.noTrimWrap = |rpid-| |
+				}
+			}
+		}
+	}
+	
+	5 = LOAD_REGISTER
+	#5.tv_ff_page_design.cObject < temp.tv_ff_page_design_slide
+	#5.class_has_subnavi.cObject < lib.class_centerbox
+	#5.class_has_subsubnavi.cObject < lib.class_has_subsubnavi
+	
+	10.wrap = <body class="| rpid-{TSFE:id} {register:class_is_shop} lang-{TSFE:sys_language_uid} {register:tv_ff_page_design} {register:class_has_subnavi} {register:class_has_subsubnavi}">
+	10.wrap.insertData = 1
+}
+
+page.bodyTagCObject < temp.body
+
+
+

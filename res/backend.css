@@ -1,0 +1,135 @@
+
+
+
+/* ------------------------------------------------------------------------------------ 
+	Typo3 pimp the backend!
+*/
+
+.tpm-content-cell {
+	border-left: none !important;
+	padding: 5px 8px 0 5px;
+}
+
+.tpm-element-title {
+	margin-right: 0;
+	min-height: 15px;
+	position: relative;
+}
+
+.tpm-title-cell {
+	padding: 10px 0 5px 5px;
+	color: #aaa;
+}
+
+.tpm-subelement-table {
+	margin-top: 0;
+}
+
+
+#typo3-inner-docbody table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+#typo3-inner-docbody .tpm-element-title .sortable_handle {
+	overflow: hidden;
+	position: absolute;
+	left: 50px;
+	right: 0;
+}
+
+#typo3-inner-docbody > .tpm-container-element-depth-0 > .tpm-titlebar > .t3-row-header {
+	display: none;
+}
+
+#typo3-inner-docbody > .tpm-container-element-depth-0 > .tpm-sub-elements {
+	border: none;
+	padding: 20px 0 0 10px;
+}
+
+.tpm-container-element-depth-odd {
+	background: rgb(239,239,239);
+	background: -moz-linear-gradient(top,  rgba(239,239,239,1) 0%, rgba(247,247,247,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(239,239,239,1)), color-stop(100%,rgba(247,247,247,1)));
+	background: -webkit-linear-gradient(top,  rgba(239,239,239,1) 0%,rgba(247,247,247,1) 100%);
+	background: -o-linear-gradient(top,  rgba(239,239,239,1) 0%,rgba(247,247,247,1) 100%);
+	background: -ms-linear-gradient(top,  rgba(239,239,239,1) 0%,rgba(247,247,247,1) 100%);
+	background: linear-gradient(to bottom,  rgba(239,239,239,1) 0%,rgba(247,247,247,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efefef', endColorstr='#f7f7f7',GradientType=0 );
+}
+
+.tpm-bottom-controls a.tpm-browse {
+	display: none;
+}
+
+.t3-row-header {
+	padding: 2px 0 2px 5px;
+	height: auto;
+}
+
+.t3-row-header .tpm-element-control {
+	height: 16px;
+}
+
+#typo3-inner-docbody > .tpm-container-element-depth-0 {
+	background-color: #f8f8f8;
+}
+
+#typo3-inner-docbody > .tpm-container-element-depth-0 > .tpm-sub-elements > div > table {
+	border-collapse: separate;
+	border-spacing: 10px;
+}
+
+#typo3-inner-docbody > .tpm-container-element-depth-0 > .tpm-sub-elements > div > table > tbody > tr > td {
+	background-color: #fff;
+	padding: 15px 15px 15px 20px;
+	-webkit-box-shadow: inset 0px 0px 7px 0px rgba(50, 50, 50, 0.35);
+	-moz-box-shadow:    inset 0px 0px 7px 0px rgba(50, 50, 50, 0.35);
+	box-shadow:         inset 0px 0px 7px 0px rgba(50, 50, 50, 0.35);
+}
+
+#typo3-inner-docbody > .tpm-container-element-depth-0 > .tpm-sub-elements > div > table > tbody > tr > td > table > tbody > tr > td.tpm-title-cell {
+	background-color: transparent;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	font-size: 10px;
+	color: #ccc;
+	padding: 0 0 10px 0;
+}
+
+#typo3-inner-docbody > .tpm-container-element-depth-0 > .tpm-sub-elements > div > table > tbody > tr > td > table > tbody > tr > td {
+	padding: 0;
+}
+
+#typo3-inner-docbody > .tpm-container-element-depth-0 > .tpm-sub-elements > div > table > tbody > tr > td > table > tbody > tr > td > .tpm-element > .tpm-container-element {
+	-webkit-box-shadow: 0px 1px 1px 0px rgba(50, 50, 50, 0.2);
+	-moz-box-shadow:    0px 1px 1px 0px rgba(50, 50, 50, 0.2);
+	box-shadow:         0px 1px 1px 0px rgba(50, 50, 50, 0.2);
+	margin: 0 0 8px 0;
+}
+
+.t3-page-ce {
+	
+}
+.tpm-preview {
+	padding: 5px 5px 5px 10px;
+}
+
+.tpm-preview .ver-element strong {
+	display: none;
+}
+
+.tpm-preview .ver-element a[onclick^="top.launchView"] {
+	display: inline-block;
+}
+
+.tpm-preview .ver-element em {
+	display: none;
+}
+
+.tpm-element-control {
+	position: relative;
+	z-index: 100;
+	background: #6d6d6d url('../../../../typo3/sysext/t3skin/images/backgrounds/row-header.png') 0 -2px repeat-x !important;
+	padding-left: 5px;
+}

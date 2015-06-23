@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin &quot;tx_ttnews_addedfields_pi1&quot;</description>
+	</meta>
+	<data type="array">
+	
+		<languageKey index="default" type="array">
+			<label index="location">Osterspai</label>
+			<label index="test">Test</label>
+		</languageKey>
+		
+		<languageKey index="de" type="array">
+			<label index="month_names">Januar,Februar,März,April,Mai,Juni,Juli,August,September,Oktober,November,Dezember</label>
+			<label index="weekday_names">Sonntag,Montag,Dienstag,Mittwoch,Donnerstag,Freitag,Samstag</label>
+			<label index="weekday_names_short">So,Mo,Di,Mi,Do,Fr,Sa</label>
+			<label index="only_show_events_in">nur Veranstaltungen in ###current_location### zeigen</label>
+			<label index="no_results">Keine Ergebnisse für angegebenes Datum oder Suchkriterien.</label>
+			<label index="details">Weiterlesen</label>
+			<label index="map">Karte</label>
+			<label index="www">Webseite</label>
+			<label index="back">Zurück zur Übersicht</label>
+		</languageKey>
+	</data>
+</T3locallang>

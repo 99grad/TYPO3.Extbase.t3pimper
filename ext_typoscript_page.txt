@@ -1,0 +1,37 @@
+
+
+
+##########################################################
+# Verschiedene Felder im Backend ausblenden
+
+TCEFORM.tt_content {
+
+	# Werden durch t3pimper-Abstand ersetzt
+	spaceBefore.disabled = 1
+	spaceAfter.disabled = 1
+	
+	date.disabled = 1
+	
+}
+
+
+TCAdefaults {
+	tt_content {
+		imageborder = 0
+		hidden = 0
+	}
+	pages.hidden = 0
+}
+
+
+TCEMAIN.table {
+	tt_content {
+		disablePrependAtCopy = 1
+		disableHideAtCopy = 1
+	}
+	pages {
+		disablePrependAtCopy = 1
+	}
+}
+
+

@@ -1,0 +1,53 @@
+
+@import url(imgareaselect-animated.css);
+
+.clearfix {
+	
+}
+
+.fal-imgvariant-all {
+	margin: 0 0 20px 0;
+}
+
+.fal-imgvariant-all textarea {
+	width: 200px;
+	height: 100px;
+	display: none;
+}
+
+.fal-focalpoint,
+.fal-imgvariant {
+	float: left;
+	margin: 0 10px 0 0;
+}
+
+.fal-img {
+	position: relative;
+	margin: 0 0 2px 0;
+}
+
+.fal-focalpoint .fp-select {
+	position: absolute;
+	background: rgba(255,255,255,0.8);
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+
+	width: 30px;
+	height: 30px;
+	margin: -15px 0 0 -15px;
+
+	box-shadow: 0 0 10px 5px rgba(0,0,0,0.5);
+	cursor: move;
+	font: 11px/11px Verdana, Arial;
+}
+
+.fal-focalpoint .fp-select:after {
+	text-align: center;
+	content: 'FP';
+	position: absolute;
+	left: 1px;
+	right: 0;
+	top: 9px;
+	color: #000;
+}

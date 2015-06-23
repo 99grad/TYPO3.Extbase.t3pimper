@@ -1,0 +1,16 @@
+
+
+
+##########################################################
+# Verschiedene Felder im Backend ausblenden
+
+options {
+	pageTree.showNavTitle = 1
+	uploadFieldsInTopOfEB = 1
+	createFoldersInEB = 1
+	clearCache {
+		pages = 1
+		all = 1
+		system = 1
+	}
+}

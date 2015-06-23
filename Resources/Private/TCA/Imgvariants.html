@@ -1,0 +1,28 @@
+
+
+
+<div id="fal-{uniqid}" class="fal-imgvariant-all clearfix" >
+
+
+	<f:for each="{setup.focalpoint}" as="conf" key="id">
+		<div class="fal-focalpoint">
+			<div class="fal-img" data-id="{id}">
+				<f:image class="preview" src="{image}" maxWidth="{TS.fal_preview.maxWidth}" maxHeight="{TS.fal_preview.maxHeight}" />
+			</div>
+			{conf.label}
+		</div>
+	</f:for>
+
+	
+	<f:for each="{setup.crop}" as="conf" key="id">
+		<div class="fal-imgvariant">
+			<div class="fal-img" data-id="{id}" data-aspectratio="{conf.aspectratio}">
+				<f:image class="preview" src="{image}" maxWidth="{TS.fal_preview.maxWidth}" maxHeight="{TS.fal_preview.maxHeight}" />
+			</div>
+			{conf.label}
+		</div>
+	</f:for>
+	
+	
+	<textarea name="{PA.itemFormElName}">{value}</textarea>
+</div>

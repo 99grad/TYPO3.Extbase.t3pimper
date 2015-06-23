@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 't3pimper'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tt_content.list_type_pi1">Farbe</label>
+			<label index="tt_content.tx_t3pimper_headercolor">Farbe</label>
+			<label index="tt_content.tx_t3pimper_headercolor.l.0">Standard</label>
+			<label index="tt_content.tx_t3pimper_headercolor.l.1">Orange</label>
+			<label index="tt_content.tx_t3pimper_headercolor.l.2">Weiß</label>
+			<label index="tt_content.tx_t3pimper_headercolor.l.3">Grün</label>
+			<label index="tt_content.tx_t3pimper_headercolor.l.4">Beige</label>
+			<label index="tt_content.tx_t3pimper_headercolor.l.5">Violett</label>
+			<label index="tt_content.tx_t3pimper_headercolor.l.6">Blau</label>
+			
+			<label index="tt_content.tx_t3pimper_imgvariants">Bildvarianten</label>
+			
+			<label index="tt_content.tx_t3pimper_headerdeco">Schmuck</label>
+			<label index="tt_content.tx_t3pimper_headerdeco.l.0"></label>
+			<label index="tt_content.tx_t3pimper_headerdeco.l.1">Linie drunter</label>
+			<label index="tt_content.tx_t3pimper_headerdeco.l.2">Geschweifte Klammern</label>
+			<label index="tt_content.tx_t3pimper_headerdeco.l.3">deco-3</label>
+			<label index="tt_content.tx_t3pimper_headerdeco.l.4">deco-4</label>
+			<label index="tt_content.tx_t3pimper_headerdeco.l.5">deco-5</label>
+			<label index="tt_content.tx_t3pimper_headerdeco.l.6">deco-6</label>
+			
+			<label index="tt_content.tx_t3pimper_margin">Abstand zum Rand</label>
+			<label index="tt_content.tx_t3pimper_margin.l.0">Standard</label>
+			<label index="tt_content.tx_t3pimper_margin.l.1">sehr wenig</label>
+			<label index="tt_content.tx_t3pimper_margin.l.2">wenig</label>
+			<label index="tt_content.tx_t3pimper_margin.l.3">mittel</label>
+			<label index="tt_content.tx_t3pimper_margin.l.4">viel</label>
+			<label index="tt_content.tx_t3pimper_margin.l.5">sehr viel</label>
+			
+			<label index="tt_content.tx_t3pimper_bulletstyle">Design</label>
+			<label index="tt_content.tx_t3pimper_bulletstyle.l.0">Standard</label>
+			<label index="tt_content.tx_t3pimper_bulletstyle.l.1">Design 1</label>
+			<label index="tt_content.tx_t3pimper_bulletstyle.l.2">Design 2</label>
+			<label index="tt_content.tx_t3pimper_bulletstyle.l.3">Design 3</label>
+			<label index="tt_content.tx_t3pimper_bulletstyle.l.4">Design 4</label>
+			<label index="tt_content.tx_t3pimper_bulletstyle.l.5">Design 5</label>
+			<label index="tt_content.tx_t3pimper_bulletstyle.l.6">Design 6</label>
+			
+			<label index="tt_content.tx_t3pimper_imgwidth">Breite (Responsive)</label>
+			<label index="tt_content.tx_t3pimper_imgwidth.l.0"></label>
+			<label index="tt_content.tx_t3pimper_imgwidth.l.1">sehr klein</label>
+			<label index="tt_content.tx_t3pimper_imgwidth.l.2">klein</label>
+			<label index="tt_content.tx_t3pimper_imgwidth.l.3">mittel</label>
+			<label index="tt_content.tx_t3pimper_imgwidth.l.4">gross</label>
+			<label index="tt_content.tx_t3pimper_imgwidth.l.5">sehr gross</label>
+			<label index="tt_content.tx_t3pimper_imgwidth.l.100">volle Breite</label>
+			
+			<label index="tt_content.tx_t3pimper_imgmarginleft">Versatz links</label>
+			<label index="tt_content.tx_t3pimper_imgmargintop">Versatz oben</label>
+			<label index="tt_content.tx_t3pimper_imgmarginright">Versatz rechts</label>
+			<label index="tt_content.tx_t3pimper_imgmarginbottom">Versatz unten</label>
+			<label index="tt_content.tx_t3pimper_imgrotate">Drehung des Bildes (in Grad)</label>
+			
+			<label index="tt_content.tx_t3pimper_usepad">Padding</label>
+			<label index="tt_content.tx_t3pimper_marginleft">Abstand links</label>
+			<label index="tt_content.tx_t3pimper_margintop">Abstand oben</label>
+			<label index="tt_content.tx_t3pimper_marginright">Abstand rechts</label>
+			<label index="tt_content.tx_t3pimper_marginbottom">Abstand unten</label>
+			<label index="tt_content.tx_t3pimper_rotate">Drehung des Inhaltselements (in Grad)</label>
+			
+		</languageKey>
+	</data>
+</T3locallang>

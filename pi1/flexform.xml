@@ -1,0 +1,103 @@
+<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+	</meta>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>Vordefiniert</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+				
+					<field_option>
+						<TCEforms>
+							<label>Funktion:</label>
+							<config>
+								<type>select</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">Übergeordnetes HMENU zeigen</numIndex>
+										<numIndex index="1">parent_hmenu</numIndex>
+									</numIndex>
+								</items>
+								<!--itemsProcFunc>tx_ttnews_addedfields_itemsProcFunc->user_insert_field_options</itemsProcFunc-->
+								<default></default>
+							</config>
+						</TCEforms>
+					</field_option>
+					
+				</el>
+			</ROOT>
+		</sDEF>
+		
+    	
+		<!--sDISPLAY>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>Template</sheetTitle>
+				</TCEforms>
+			    <type>array</type>
+			    <el>
+			    
+			    	<no_cache>
+					  	<TCEforms>
+						<exclude>1</exclude>
+						<label>Seiten-Cache deaktiveren</label>
+						<config>
+							<type>check</type>
+							<default>0</default>
+						</config>
+					  	</TCEforms>
+					</no_cache>
+					
+					
+					<template_file>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>Template-Datei</label>
+							<config>
+								<type>input</type>
+								<eval>trim</eval>
+								<default>EXT:tt_news_addedfields/res/demo_simple.html</default>
+								<wizards type="array">
+									<_PADDING>2</_PADDING>
+									<link type="array">
+										<type>popup</type>
+										<title>Link</title>
+										<icon>link_popup.gif</icon>
+										<script>browse_links.php?mode=wizard&amp;act=file</script>
+										<params type="array">
+											<blindLinkOptions>page,url,mail,spec</blindLinkOptions>
+											<allowedExtensions>htm,html,tmpl,tpl</allowedExtensions>
+										</params>
+										<JSopenParams>height=300,width=500,status=0,menubar=0,scrollbars=1</JSopenParams>
+									</link>
+								</wizards>
+							</config>
+			
+						</TCEforms>
+					</template_file>
+					
+					
+					<myTS>
+					  	<TCEforms>
+						<exclude>1</exclude>
+						<label>TypoScript - zum Überschreiben der Setup-Werte</label>
+						<config>
+							<type>text</type>
+							<cols>50</cols>
+							<rows>10</rows>
+						</config>
+					  	</TCEforms>
+					</myTS>
+
+			    </el>
+	  		</ROOT>
+    	</sDISPLAY-->
+
+
+		
+    </sheets>
+</T3DataStructure>
