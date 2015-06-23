@@ -1,13 +1,15 @@
 # t3pimper
 Erweitert das Typo3 Front- und Backend um viele nützliche Funktionen, die wir immer wieder vermisst haben.
 
-## Backend: Typo3 Seitenbaum
+Feature-List:
+
+#### Backend: Typo3 Seitenbaum
 + "Im Menü verbergen / sichtbar machen" direkt im Kontextmenü
 + "Seite kopieren / einfügen" in erster Hierarchie des Kontextmenüs
 + Navigations-Titel statt Seitentitel im Seitenbaum anzeigen
 + "Kopie von" entfernen, wenn Seite kopiert wird
 
-## Backend: Inhaltselemente
+#### Backend: Inhaltselemente
 + Mehrzeilige Überschriften
 + Feld "Untertitel" bei Inhaltselementen anzeigen
 + Neue Felder "Farbe" und "Schmuck" bei Headlines
@@ -18,18 +20,18 @@ Erweitert das Typo3 Front- und Backend um viele nützliche Funktionen, die wir i
 + Upload-Felder für fileadmin direkt im Seitenbaum-PopUp zeigen
 + "Kopie von" entfernen, wenn Inhaltselemente kopiert werden
 
-## Backend/Frontend: "Rahmen"
+#### Backend/Frontend: "Rahmen"
 + Starke Vereinfachung des Anlegen von neuen Rahmen durch generischen Ansatz
 
-## Backend: User
+#### Backend: User
 + "Alle Caches löschen" im Typo3-Blitz zeigen
 
-## Frontend: Markup
+#### Frontend: Markup
 + Breadcrumb aus pids als class-Attribut an body-Tag hängen
 + Language-ID als class-Attribut an body-Tag
 + Bessere class-Attribute bei `hgroup` und `h..`-Elementen für Ausrichtung, Farbe, Stil und Schmuck einer Headline
 
-## Frontend: Lightboxes
+#### Frontend: Lightboxes
 + Bilder für jQuery-Lightboxen (shaded lightbox fancybox) vorbereiten, wenn "Bei Klick vergrößern" im Inhaltselement gesetzt ist
 
 
