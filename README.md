@@ -41,9 +41,9 @@ Feature-List:
 # Headline-Typen, Farben und Schmuck
 Normalerweise müssen die Einstellungen für Headline-Typen, Rahmen und Einrückungen etc. an zwei Stellen im TypoScript definiert werden: In der `page TSconfig` wird das Label und die Auswahl-Optionen für die Dropdown-Menüs im Backend definiert und im TS-Setup/Seiten-Template die Ausgabe im HTML gesteuert über z.B. `tt_content.stdWrap.innerWrap.cObject...`.
 
-Um das zu vereinfachen, verfolgt t3pimper einen generischen Ansatz: Es genügt, im `page TSconfig` die Auswahl-Optionen der Dropdowns zu definieren. Die Headlines bzw. Inhaltselemente werden dann automatisch mit generischen, numerierten Klassen bestückt.
+Um das zu vereinfachen, verfolgt t3pimper einen generischen Ansatz: Es genügt, im `page TSconfig` die Auswahl-Optionen der Dropdowns zu definieren. Die Headlines bzw. Inhaltselemente werden dann automatisch mit numerischen Klassen bestückt.
 
-Zusätzlich war uns das Dropdown "Headline-Typen" bei vielen Projekten zu wenig – wenn man eine h1 und h2 in zwei Farben und optional mit und ohne Linie darunter festlegen wollte, dann brauchte man bereits 8 Varianten im Dropdown. Besser (vorallem in Bezug auf die CSS-Definitionen) fanden wir eine Trennung in Farbe, Stil und Schmuck der Headline. Die h1-h6-Tags und ´hgroup`-Tags bekommen diese Klassen mitgeliefert, z.B.
+Zusätzlich war uns das Dropdown "Headline-Typen" bei vielen Projekten zu wenig – wenn man eine h1 und h2 in zwei Farben und optional mit und ohne Linie darunter festlegen wollte, dann brauchte man bereits 8 Varianten im Dropdown. Besser (vorallem in Bezug auf die CSS-Definitionen) fanden wir eine Trennung in Farbe, Stil und Schmuck der Headline. Die h1-h6-Tags und `hgroup`-Tags bekommen diese Klassen mitgeliefert, z.B.
 
 ```html
 <hgroup class="grcenter grh-10 grdeco-12 grcol-11">
@@ -55,7 +55,7 @@ Zusätzlich war uns das Dropdown "Headline-Typen" bei vielen Projekten zu wenig 
 [Weitere Informationen](http://labor.99grad.de/2015/01/14/t3pimper-kurzdoku/)
 
 #### Headline-Typen
-Neue Typen können mit `addItems` hinzugefügt werden. Die Nummer der Headline bestimmt dabei die Hierarchie und Klasse. “31″ wird z.B. zu einer h3 mit der Klasse “h-31″, “44″ wäre h4 mit class=”44″ etc. Eine weitere Formatierung im TS-Setup (lib.stdheader.10…) entfällt.
+Neue Typen können mit `addItems` hinzugefügt werden. Die Nummer der Headline bestimmt dabei die Hierarchie und Klasse. “31″ wird z.B. zu einer h3 mit der Klasse “h-31″, “44″ wäre h4 mit class=”h-44″ etc. Eine weitere Formatierung im TS-Setup (`lib.stdheader.10…`) entfällt.
 
 ```
 # kommt ins Page TSconfig:
