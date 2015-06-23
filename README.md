@@ -54,7 +54,7 @@ Zusätzlich war uns das Dropdown "Headline-Typen" bei vielen Projekten zu wenig 
 
 [Weitere Informationen](http://labor.99grad.de/2015/01/14/t3pimper-kurzdoku/)
 
-# Headline-Typen
+#### Headline-Typen
 Neue Typen können mit `addItems` hinzugefügt werden. Die Nummer der Headline bestimmt dabei die Hierarchie und Klasse. “31″ wird z.B. zu einer h3 mit der Klasse “h-31″, “44″ wäre h4 mit class=”44″ etc. Eine weitere Formatierung im TS-Setup (lib.stdheader.10…) entfällt.
 
 ```
@@ -78,7 +78,7 @@ TCEFORM.tt_content.header_layout.addItems {
 TCEFORM.tt_content.header_layout.removeItems = 1,4,5,6,7,8,9
 ```
 
-# Headline-Farben
+#### Headline-Farben
 Die Farbe erscheint als `class="col-xx"` an dem H-Tag. "xx" ist dabei der Key im Typoscript. Mit removeItems, altLabels und addItems kann das Dropdown geändert werden:
 ```
 # kommt ins Page TSconfig:
@@ -94,7 +94,7 @@ TCEFORM.tt_content.tx_t3pimper_headercolor {
 }
 ```
 
-# Headline-Schmuck
+#### Headline-Schmuck
 Der Schmuck erscheint als `class="deco-xx"´ an dem H-Tag. “xx” ist dabei der Key im Typoscript. Mit removeItems, altLabels und addItems kann das Dropdown geändert werden:
 ```
 # kommt ins Page TSconfig:
@@ -111,7 +111,7 @@ TCEFORM.tt_content.tx_t3pimper_headerdeco {
 ```
 
 ## Styling Rahmen / Layout
-# Hinzufügen/Ändern von Layout-Optionen
+#### Hinzufügen/Ändern von Layout-Optionen
 Das Layout erscheint als `class="layout-xx"´ an dem Inhaltselement-DIV. “xx” ist dabei der Key im Typoscript:
 ```
 # kommt ins Page TSconfig:
@@ -127,7 +127,7 @@ TCEFORM.tt_content.layout {
 }
 ```
 
-# Hinzufügen/Ändern von Rahmen/Einrückungen-Optionen
+#### Hinzufügen/Ändern von Rahmen/Einrückungen-Optionen
 Der gewählte Rahmen erscheint als `class="rahmen-xx"` an dem Inhaltselement-DIV. “xx” ist dabei der Key im Typoscript:
 ```
 # kommt ins Page TSconfig:
@@ -141,7 +141,7 @@ TCEFORM.tt_content.section_frame {
 }
 ```
 
-# Hinzufügen/Ändern von “Abstand zum Rand”
+#### Hinzufügen/Ändern von “Abstand zum Rand”
 Der “Abstand zum Rand” erscheint als `class="marg-xx"´ an dem Inhaltselement-DIV. “xx” ist dabei der Key im Typoscript.
 ```
 # kommt ins Page TSconfig:
