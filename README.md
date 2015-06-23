@@ -13,6 +13,7 @@ Erweitert das Typo3 Front- und Backend um viele nützliche Funktionen, die wir i
 + Neue Felder "Farbe" und "Schmuck" bei Headlines
 + Neues Feld "Abstand zum Rand" im Reiter "Erscheinungsbild"
 + Neue Felder für Abstand oben, rechts, unten, links im Reiter "Erscheinungsbild"
++ Erlaubt auch negativen Margin bei den Angaben für Abstand
 + Neues Feld "Drehung" im Reiter Erscheinungsbild
 + Upload-Felder für fileadmin direkt im Seitenbaum-PopUp zeigen
 + "Kopie von" entfernen, wenn Inhaltselemente kopiert werden
