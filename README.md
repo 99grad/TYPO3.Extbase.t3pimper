@@ -22,6 +22,7 @@ Feature-List:
 
 #### Backend/Frontend: "Rahmen"
 + Starke Vereinfachung des Anlegen von neuen Rahmen durch generischen Ansatz
++ "Layout", "Rahmen/Einrückungen" und "Abstand zum Rand" werden jedem Div als Klasse mitgegeben
 
 #### Backend: User
 + "Alle Caches löschen" im Typo3-Blitz zeigen
