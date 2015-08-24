@@ -490,6 +490,14 @@ tt_content.stdWrap.innerWrap.cObject.default {
 }
 
 
+
+## Anker mit <a id="cXX"></a> entfernen
+
+tt_content.stdWrap {
+	innerWrap.cObject.66.10 >
+	prepend.dataWrap >
+}
+
 ## .66 ist die Option "kein Rahmen". Hier möchten wir aber den Abstand und Position übernehmen
 
 tt_content.stdWrap.innerWrap.cObject.66.stdWrap.wrap {
@@ -506,6 +514,12 @@ tt_content.stdWrap.innerWrap.cObject.66.stdWrap.wrap {
 		20 = TEXT
 		20.value = <div{register:t3pimper_sectionStyle}{register:t3pimper_sectionClassAttr}>|</div> 
 		20.insertData = 1
+		20.if.isTrue.cObject = TEXT
+		20.if.isTrue.cObject {
+			value = {register:t3pimper_sectionStyle}{register:t3pimper_sectionClassAttr}
+			insertData = 1
+		}
+		
 	}
 }
 
@@ -662,6 +676,58 @@ tt_content.image.20.1.imageLinkWrap >
 tt_content.image.20.1.imageLinkWrap < tmp.imageLinkWrap 
 
 
+
+####################################
+## Scrollbars bei Pop-Ups zeigen
+
+tt_content.text.20.parseFunc.tags.link.typolink.JSwindow_params = scrollbars=1
+lib.parseFunc_RTE.tags.link.typolink.JSwindow_params = scrollbars=1
+
+
+
+#########################################################################
+# Inhaltselement: Dateiliste / fileuploads
+# Titel verlinken, statt Dateiname zu zeigen
+
+tt_content.uploads {
+	20 {
+		outerWrap = <ul class="filelist layout-{field:layout}">|</ul>
+		outerWrap.insertData = 1
+		
+		
+		itemRendering {
+
+			# css_styled_content 4.7
+			wrap.cObject {
+				10.oddEvenClass = odd first |*| even || odd
+				10.elementClass = filelist-filetype-{register:fileExtension}
+				20.value = <li class="filelist-item {register:oddEvenClass} {register:elementClass}">|</li>
+			}			
+
+			10 >
+			10 = TEXT
+			10.value = 
+			10.dataWrap = <span class="filelist-icon filelist-icon-{register:fileExtension}">|</span>
+			
+			
+			20 = COA
+			20 {
+				wrap = <span class="filelist-name">|</span>
+				
+				2 = TEXT
+				2.data = register:description
+				2.data.override = register:filename
+				2.data.override.if.isFalse.data = register:description
+				2.dataWrap = <a href="{register:path}{register:filename}" target="{field:target}">|</a>
+				
+			}
+		
+			30.wrap = <span class="filelist-size">(|)</span><span class="clear_div"></span>
+		}
+	}
+}
+
+
 ######################################################################################################
 ## PID aller übergeordneten Seiten als class an body hängen!
 
@@ -670,7 +736,7 @@ temp.body {
 	10 = HMENU
 	10 {
 		special = rootline
-		special.range = 0 | 2
+		special.range = 0 | 5
 		1 = TMENU
 		1 {
 			NO {
@@ -693,7 +759,7 @@ temp.body {
 	#5.class_has_subnavi.cObject < lib.class_centerbox
 	#5.class_has_subsubnavi.cObject < lib.class_has_subsubnavi
 	
-	10.wrap = <body class="| rpid-{TSFE:id} {register:class_is_shop} lang-{TSFE:sys_language_uid} {register:tv_ff_page_design} {register:class_has_subnavi} {register:class_has_subsubnavi}">
+	10.wrap = <body class="| rpid-{page:pid} rpid-{TSFE:id} lang-{TSFE:sys_language_uid} {register:class_has_subnavi} {register:class_has_subsubnavi}">
 	10.wrap.insertData = 1
 }
 
